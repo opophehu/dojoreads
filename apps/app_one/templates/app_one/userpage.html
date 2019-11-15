@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Home</a>
+        <a href="/books/add">Add Book and Review</a>
+        <a href="/logout">Logout</a>
+        <h2>User Alias: {{user.fname}}</h2>
+        Name: <h5>{{user.fname}} {{user.lname}}</h5>
+        Email: <h5>{{user.email}}</h5>
+        Total Reviews: <h5>{{user.ratings.all()}}</h5>
+        <h3>Posted Reviews on the following books:</h3>
+        <ul>
+            <li><a href="">Divergent</a></li>
+            <li><a href="">The Vampire Chronicles</a></li>
+            <li><a href="">The List of Pie</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

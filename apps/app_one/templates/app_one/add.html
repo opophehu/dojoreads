@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+</head>
+<body>
+    <div class="container">
+        <form action="/books/add/process" method = 'POST'>
+            {%csrf_token%}
+            <h2>Add a New Book Title and a Review:</h2>
+            <h4>Book Title:</h4>
+            <input type="text" name="btitle" id="">
+            <h4>Author:</h4>
+            <h5>Choose from the list:</h5>
+            <select name="authorlist" id="">
+                <option value=' '> </option>
+                {% for i in auslist%}
+                    <option value={{i.name}}>{{i.name}}</option>
+                    <!-- <input type="hidden" name="aname" value={{i.name}}> -->
+                {% endfor %}
+            </select>
+            <h5>Or add a new author:</h5>
+            <input type="text" name="newauthor" id="">
+            <h4>Review:</h4>
+            <input type="text" name="reviewbox" id="">
+            <h4>Rating:</h4>
+            <select name="stars" id="">
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+            </select>
+            <input type="submit" value="Add Book and Review">
+        </form>
+        <a href="/books">Go back</a>     
+    </div>
+</body>
+</html>

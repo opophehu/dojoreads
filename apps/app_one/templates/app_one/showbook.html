@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        Book title: {{sb.title}} 
+        <br>
+        Author: {{sb.author.name}}
+        <h3>Reviews:</h3>
+        {% for i in sb.rating.all%}
+            <h5>Rating:</h5>
+            {{i.rating}}
+            <a href="/users/{{i.user.id}}">{{i.user.fname}}{{i.user.fname}}</a>
+            says: {{i.review}}
+            Posted on: {{i.createdat}}
+            <a href="/review/delete">Delete this Review</a>
+        {% endfor %}
+        <form action="/books/{{sb.id}}/addreview" method = 'POST'>
+            {%csrf_token%}
+            <h3>Add a Review:</h3>
+            <input type="text" name="updatereview" id="">
+            <h3>Rating:</h3>
+            <select name="stars" id="">
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+            </select>
+            <h3>stars.</h3>
+            <input type="submit" value="Submit Review">
+        </form>
+        <a href="/books">Go back</a>
+    </div>
+</body>
+</html>
